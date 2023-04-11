@@ -1,4 +1,4 @@
-import React, { useCallback, useState, Suspense, lazy } from 'react';
+import React, { useCallback, useState, Suspense, lazy, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -23,23 +23,66 @@ import { AuthContext } from './shared/context/auth-context';
 
 import LoadingSpinner from './shared/components/UIElements/LoadingSpinner';
 
-const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState(false);
+let logoutTimer;
 
-  const login = useCallback(uid => {
-    setIsLoggedIn(true);
+const App = () => {
+  const [token, setToken] = useState(false);
+  const [userId, setUserId] = useState();
+  const [tokenExpirationDate, setTokenExpirationDate] = useState(false);
+
+  const login = useCallback((uid, token, expirationDate) => {
+    setToken(token);
     setUserId(uid);
+    // Expiration date, current time + 1h
+    const tokenExpirationDate =
+      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+    setTokenExpirationDate(tokenExpirationDate);
+    localStorage.setItem(
+      'userData',
+      JSON.stringify({
+        userId: uid,
+        token: token,
+        expiration: tokenExpirationDate.toISOString(),
+      })
+    );
   }, []);
 
   const logout = useCallback(() => {
-    setIsLoggedIn(false);
+    setToken(null);
+    setTokenExpirationDate(null);
     setUserId(null);
+    localStorage.removeItem('userData');
   }, []);
+
+  useEffect(() => {
+    if (token) {
+      const remainingTime =
+        tokenExpirationDate.getTime() - new Date().getTime();
+      logoutTimer = setTimeout(logout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }),
+    [token, logout, tokenExpirationDate];
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userData'));
+    if (
+      storedData &&
+      storedData.token &&
+      new Date(storedData.expiration) > new Date()
+    ) {
+      login(
+        storedData.userId,
+        storedData.token,
+        new Date(storedData.expiration)
+      );
+    }
+  }, [login]);
 
   let routes;
 
-  if (isLoggedIn) {
+  if (token) {
     routes = (
       <Routes>
         <Route path="/" element={<Users />} />
@@ -63,7 +106,8 @@ const App = () => {
   return (
     <AuthContext.Provider
       value={{
-        isLoggedIn: isLoggedIn,
+        isLoggedIn: !!token,
+        token: token,
         userId: userId,
         login: login,
         logout: logout,
