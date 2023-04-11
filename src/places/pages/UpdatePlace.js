@@ -97,6 +97,7 @@ const UpdatePlace = () => {
         'PATCH',
         requestBody,
         {
+          Authorization: `Bearer ${auth.token}`,
           'Content-Type': 'application/json',
         }
       );

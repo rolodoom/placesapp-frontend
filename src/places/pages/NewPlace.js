@@ -64,12 +64,13 @@ const NewPlace = () => {
         'POST',
         requestBody,
         {
+          Authorization: `Bearer ${auth.token}`,
           'Content-Type': 'application/json',
         }
       );
 
       // Redirect user to a different page
-      navigate('/');
+      navigate(`/${auth.userId}/places`);
     } catch (err) {
       //
     }
