@@ -78,7 +78,7 @@ const Auth = () => {
             'Content-Type': 'application/json',
           }
         );
-        auth.login(responseData.user.id);
+        auth.login(responseData.user.id, responseData.token);
       } catch (error) {
         // console.log('');
       }
@@ -90,7 +90,7 @@ const Auth = () => {
       });
 
       try {
-        await sendRequest(
+        const responseData = await sendRequest(
           `${process.env.REACT_APP_BACKEND_API_URL}users/signup`,
           'POST',
           requestBody,
@@ -99,7 +99,7 @@ const Auth = () => {
           }
         );
 
-        auth.login();
+        auth.login(responseData.user.id, responseData.token);
       } catch (error) {
         // console.log('');
       }
