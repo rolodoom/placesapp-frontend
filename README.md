@@ -1,6 +1,19 @@
-# PlacesApp-Frontend
+# PlacesApp
 
-React Frontend for a place sharing app.
+PlacesApp is a React frontend for sharing places built following the code from [Build fullstack React.js applications with Node.js, Express.js &amp; MongoDB (MERN) with this project-focused course](https://udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide) by [Maximilian Schwarzmüller](https://academind.com/).
+
+This frontend uses the [PlacesApp-API](https://github.com/rolodoom/placesapp-api)
+
+## Status
+
+[![GitHub license](https://img.shields.io/badge/license-GPL--3.0-blue)](https://raw.githubusercontent.com/rolodoom/placesapp-frontend/master/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/35619c56-243f-4d62-8788-527682d14629/deploy-status)](https://app.netlify.com/sites/placesapp-rolodoom/deploys)
+
+## Preview
+
+[![PlacesApp Preview](src/screenshots/screenshot.jpg)](https://placesapp-rolodoom.netlify.app/)
+
+**[View Live Preview](https://placesapp-rolodoom.netlify.app/)**
 
 ## Usage
 
@@ -47,6 +60,6 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 Have a bug or an issue with this template? [Open a new issue](https://github.com/rolodoom/placesapp-frontend/issues) here on GitHub.
 
-## About
+## License
 
-This Frontend is based on the Udemy course [Build fullstack React.js applications with Node.js, Express.js &amp; MongoDB (MERN) with this project-focused course](https://udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide/learn/lecture/17005906#overview).
+This code is released under the [GPL-3.0](https://github.com/rolodoom/musicband-react/blob/master/LICENSE) license, which means you have the four freedoms to run, study, share, and modify the software. Any derivative work must be distributed under the same or equivalent license terms.
