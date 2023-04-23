@@ -62,4 +62,4 @@ Have a bug or an issue with this template? [Open a new issue](https://github.com
 
 ## License
 
-This code is released under the [GPL-3.0](https://github.com/rolodoom/musicband-react/blob/master/LICENSE) license, which means you have the four freedoms to run, study, share, and modify the software. Any derivative work must be distributed under the same or equivalent license terms.
+This code is released under the [GPL-3.0](https://github.com/rolodoom/placesapp-frontend/blob/master/LICENSE) license, which means you have the four freedoms to run, study, share, and modify the software. Any derivative work must be distributed under the same or equivalent license terms.
