@@ -6,7 +6,7 @@ This frontend uses the [PlacesApp-API](https://github.com/rolodoom/placesapp-api
 
 ## Status
 
-[![GitHub license](https://img.shields.io/badge/license-GPL--3.0-blue)](https://raw.githubusercontent.com/rolodoom/placesapp-frontend/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GPL--3.0-blue)](https://raw.githubusercontent.com/rolodoom/placesapp-frontend/main/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/35619c56-243f-4d62-8788-527682d14629/deploy-status)](https://app.netlify.com/sites/placesapp-rolodoom/deploys)
 
 ## Preview
@@ -62,4 +62,4 @@ Have a bug or an issue with this template? [Open a new issue](https://github.com
 
 ## License
 
-This code is released under the [GPL-3.0](https://github.com/rolodoom/placesapp-frontend/blob/master/LICENSE) license, which means you have the four freedoms to run, study, share, and modify the software. Any derivative work must be distributed under the same or equivalent license terms.
+This code is released under the [GPL-3.0](https://github.com/rolodoom/placesapp-frontend/blob/main/LICENSE) license, which means you have the four freedoms to run, study, share, and modify the software. Any derivative work must be distributed under the same or equivalent license terms.
