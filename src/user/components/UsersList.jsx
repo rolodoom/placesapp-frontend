@@ -1,7 +1,5 @@
-import React from 'react';
-
-import UserItem from './UserItem';
-import Card from '../../shared/components/UIElements/Card';
+import UserItem from './UserItem.jsx';
+import Card from '../../shared/components/UIElements/Card.jsx';
 
 import './UsersList.css';
 

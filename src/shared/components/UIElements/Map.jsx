@@ -1,7 +1,7 @@
 // Mapbox and React
 // https://docs.mapbox.com/help/tutorials/use-mapbox-gl-js-with-react/
 
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 
 import './Map.css';
@@ -9,7 +9,7 @@ import './Map.css';
 const Map = props => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  mapboxgl.accessToken = process.env.REACT_APP_MAP_API_KEY;
+  mapboxgl.accessToken = import.meta.env.VITE_MAP_API_KEY;
   const { lng, lat } = props.location;
   const zoom = 12;
   const mapStyle = 'mapbox://styles/rolodoom/cle5tsdez001801pft83htnau';

@@ -1,21 +1,21 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { IoLogInOutline } from 'react-icons/io5';
 
-import Card from '../../shared/components/UIElements/Card';
-import Input from '../../shared/components/FormElements/Input';
-import Button from '../../shared/components/FormElements/Button';
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
-import { useHttpClient } from '../../shared/hooks/http-hook';
+import Card from '../../shared/components/UIElements/Card.jsx';
+import Input from '../../shared/components/FormElements/Input.jsx';
+import Button from '../../shared/components/FormElements/Button.jsx';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal.jsx';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner.jsx';
+import { useHttpClient } from '../../shared/hooks/http-hook.jsx';
 
 import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_EMAIL,
   VALIDATOR_REQUIRE,
-} from '../../shared/util/validators';
+} from '../../shared/util/validators.js';
 
-import { useForm } from '../../shared/hooks/form-hook';
-import { AuthContext } from '../../shared/context/auth-context';
+import { useForm } from '../../shared/hooks/form-hook.jsx';
+import { AuthContext } from '../../shared/context/auth-context.jsx';
 
 import './Auth.css';
 
@@ -71,7 +71,7 @@ const Auth = () => {
 
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_API_URL}users/login`,
+          `${import.meta.env.VITE_BACKEND_API_URL}users/login`,
           'POST',
           requestBody,
           {
@@ -91,7 +91,7 @@ const Auth = () => {
 
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_API_URL}users/signup`,
+          `${import.meta.env.VITE_BACKEND_API_URL}users/signup`,
           'POST',
           requestBody,
           {
@@ -107,7 +107,7 @@ const Auth = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
@@ -152,7 +152,7 @@ const Auth = () => {
           Switch to {isLoginMode ? 'Signup' : 'Login'}
         </Button>
       </Card>
-    </React.Fragment>
+    </>
   );
 };
 

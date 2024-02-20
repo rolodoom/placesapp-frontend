@@ -1,11 +1,10 @@
-import React from 'react';
 // import mapboxgl from 'mapbox-gl';
 import { Map as ReactMapGL, Marker, NavigationControl } from 'react-map-gl';
 
 import './Map.scss';
 
 const Map = props => {
-  const accessToken = process.env.REACT_APP_MAP_API_KEY;
+  const accessToken = import.meta.env.VITE_MAP_API_KEY;
   const lng = props.location.lng;
   const lat = props.location.lat;
   const mapStyle = 'mapbox://styles/rolodoom/cle5tsdez001801pft83htnau';

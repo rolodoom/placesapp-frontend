@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   IoLocationSharp,
   IoCreateOutline,
@@ -7,18 +7,18 @@ import {
   IoCloseCircleOutline,
 } from 'react-icons/io5';
 
-import Card from '../../shared/components/UIElements/Card';
-import Button from '../../shared/components/FormElements/Button';
-import Modal from '../../shared/components/UIElements/Modal';
-import Map from '../../shared/components/UIElements/Map';
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import Card from '../../shared/components/UIElements/Card.jsx';
+import Button from '../../shared/components/FormElements/Button.jsx';
+import Modal from '../../shared/components/UIElements/Modal.jsx';
+import Map from '../../shared/components/UIElements/Map.jsx';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal.jsx';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner.jsx';
 
-import { useHttpClient } from '../../shared/hooks/http-hook';
+import { useHttpClient } from '../../shared/hooks/http-hook.jsx';
 
 import './PlaceItem.css';
 
-import { AuthContext } from '../../shared/context/auth-context';
+import { AuthContext } from '../../shared/context/auth-context.jsx';
 
 const PlaceItem = props => {
   const auth = useContext(AuthContext);
@@ -41,7 +41,7 @@ const PlaceItem = props => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_API_URL}places/${props.id}`,
+        `${import.meta.env.VITE_BACKEND_API_URL}places/${props.id}`,
         'DELETE',
         null,
         {
@@ -55,7 +55,7 @@ const PlaceItem = props => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
 
       <Modal
@@ -80,14 +80,14 @@ const PlaceItem = props => {
         header="Are you sure?"
         footerClass="place-item__modal-actions"
         footer={
-          <React.Fragment>
+          <>
             <Button inverse onClick={cancelDeleteHandler}>
               <IoCloseCircle /> Cancel
             </Button>
             <Button danger onClick={confirmDeleteHandler}>
               <IoTrashOutline /> Delete
             </Button>
-          </React.Fragment>
+          </>
         }
       >
         <p>
@@ -130,7 +130,7 @@ const PlaceItem = props => {
           </div>
         </Card>
       </li>
-    </React.Fragment>
+    </>
   );
 };
 

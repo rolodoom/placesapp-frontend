@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal.jsx';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner.jsx';
 
-import { useHttpClient } from '../../shared/hooks/http-hook';
+import { useHttpClient } from '../../shared/hooks/http-hook.jsx';
 
-import PlaceList from '../components/PlaceList';
+import PlaceList from '../components/PlaceList.jsx';
 
 const UserPlaces = () => {
   const [loadedPlaces, setLoadedPlaces] = useState();
@@ -20,7 +20,7 @@ const UserPlaces = () => {
     const fetchPlaces = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_API_URL}places/user/${userId}`
+          `${import.meta.env.VITE_BACKEND_API_URL}places/user/${userId}`
         );
         setLoadedPlaces(responseData.places);
       } catch (err) {
@@ -37,7 +37,7 @@ const UserPlaces = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
         <div className="center">
@@ -48,7 +48,7 @@ const UserPlaces = () => {
       {!isLoading && loadedPlaces && (
         <PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler} />
       )}
-    </React.Fragment>
+    </>
   );
 };
 

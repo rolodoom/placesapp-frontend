@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 
-import BackDrop from './Backdrop';
+import BackDrop from './Backdrop.jsx';
 
 import './Modal.css';
+import { useRef } from 'react';
 
 const ModalOverlay = props => {
   const content = (
@@ -31,14 +31,14 @@ const ModalOverlay = props => {
     </div>
   );
 
-  return ReactDOM.createPortal(content, document.getElementById('modal-hook'));
+  return createPortal(content, document.getElementById('modal-hook'));
 };
 
 const Modal = props => {
-  const nodeRef = React.useRef(null);
+  const nodeRef = useRef(null);
 
   return (
-    <React.Fragment>
+    <>
       {props.show && <BackDrop onClick={props.onCancel} />}
       <CSSTransition
         nodeRef={nodeRef}
@@ -50,7 +50,7 @@ const Modal = props => {
       >
         <ModalOverlay nodeRef={nodeRef} {...props} />
       </CSSTransition>
-    </React.Fragment>
+    </>
   );
 };
 

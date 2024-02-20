@@ -1,6 +1,6 @@
 # PlacesApp
 
-PlacesApp is a React frontend for sharing places built following the code from [Build fullstack React.js applications with Node.js, Express.js &amp; MongoDB (MERN) with this project-focused course](https://udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide) by [Maximilian Schwarzmüller](https://academind.com/).
+PlacesApp is a React+Vite frontend for sharing places built following the code from [Build fullstack React.js applications with Node.js, Express.js &amp; MongoDB (MERN) with this project-focused course](https://udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide) by [Maximilian Schwarzmüller](https://academind.com/).
 
 This frontend uses the [PlacesApp-API](https://github.com/rolodoom/placesapp-api)
 
@@ -17,44 +17,26 @@ This frontend uses the [PlacesApp-API](https://github.com/rolodoom/placesapp-api
 
 ## Usage
 
-Clone the source files of the theme and navigate into the theme's root directory. Run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the package.json file to see which scripts are included.
+### Basic Usage
 
-## Available Scripts
+After downloading, simply edit the HTML and CSS files included with `dist` directory. These are the only files you need to worry about, you can ignore everything else! To preview the changes you make to the code, you can open the `index.html` file in your web browser.
 
-In the project directory, you can run:
+### Advanced Usage
 
-### `npm start`
+Clone the source files of the theme and navigate into the theme's root directory. Run `npm install` and then run `npm start` which will open up a preview of the template in your default browser, watch for changes to core template files, and live reload the browser when changes are saved. You can view the `package.json` file to see which scripts are included.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### npm Scripts
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `npm run build` builds the project - this builds assets, HTML, JS, and CSS into `dist`
+- `npm run build:assets` copies the files in the `src/assets/` directory into `dist`
+- `npm run build:pug` compiles the Pug located in the `src/pug/` directory into `dist`
+- `npm run build:scripts` brings the `src/js/scripts.js` file into `dist`
+- `npm run build:scss` compiles the SCSS files located in the `src/scss/` directory into `dist`
+- `npm run clean` deletes the `dist` directory to prepare for rebuilding the project
+- `npm run start:debug` runs the project in debug mode
+- `npm start` or `npm run start` runs the project, launches a live preview in your default browser, and watches for changes made to files in `src`
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You must have npm installed in order to use this build environment.
 
 ## Bugs and Issues
 

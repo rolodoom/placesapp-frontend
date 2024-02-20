@@ -1,24 +1,24 @@
-import React, { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { IoCheckmarkCircleOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
-import Input from '../../shared/components/FormElements/Input';
-import Button from '../../shared/components/FormElements/Button';
-import Card from '../../shared/components/UIElements/Card';
+import Input from '../../shared/components/FormElements/Input.jsx';
+import Button from '../../shared/components/FormElements/Button.jsx';
+import Card from '../../shared/components/UIElements/Card.jsx';
 
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
   VALIDATOR_URL,
-} from '../../shared/util/validators';
+} from '../../shared/util/validators.js';
 
-import { useForm } from '../../shared/hooks/form-hook';
-import { useHttpClient } from '../../shared/hooks/http-hook';
-import { AuthContext } from '../../shared/context/auth-context';
+import { useForm } from '../../shared/hooks/form-hook.jsx';
+import { useHttpClient } from '../../shared/hooks/http-hook.jsx';
+import { AuthContext } from '../../shared/context/auth-context.jsx';
 
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal.jsx';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner.jsx';
 
 import './PlaceForm.css';
 
@@ -52,7 +52,7 @@ const UpdatePlace = () => {
     const fetchPlace = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_API_URL}places/${placeId}`
+          `${import.meta.env.VITE_BACKEND_API_URL}places/${placeId}`
         );
         setLoadedPlace(responseData.place);
 
@@ -93,7 +93,7 @@ const UpdatePlace = () => {
         image: formState.inputs.image.value,
       });
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_API_URL}places/${placeId}`,
+        `${import.meta.env.VITE_BACKEND_API_URL}places/${placeId}`,
         'PATCH',
         requestBody,
         {
@@ -128,7 +128,7 @@ const UpdatePlace = () => {
   }
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
 
       {!isLoading && loadedPlace && (
@@ -171,7 +171,7 @@ const UpdatePlace = () => {
           </Button>
         </form>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

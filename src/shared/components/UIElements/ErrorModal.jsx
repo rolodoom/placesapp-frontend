@@ -1,8 +1,7 @@
-import React from 'react';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 
-import Modal from './Modal';
-import Button from '../FormElements/Button';
+import Modal from './Modal.jsx';
+import Button from '../FormElements/Button.jsx';
 
 const ErrorModal = props => {
   return (

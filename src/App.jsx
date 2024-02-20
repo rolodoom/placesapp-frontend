@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,23 +6,19 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import './App.css';
+// import './App.css';
 
-const Auth = lazy(() => import('./user/pages/Auth'));
-const NewPlace = lazy(() => import('./places/pages/NewPlace'));
-const UserPlaces = lazy(() => import('./places/pages/UserPlaces'));
-const UpdatePlace = lazy(() => import('./places/pages/UpdatePlace'));
+const Auth = lazy(() => import('./user/pages/Auth.jsx'));
+const NewPlace = lazy(() => import('./places/pages/NewPlace.jsx'));
+const UserPlaces = lazy(() => import('./places/pages/UserPlaces.jsx'));
+const UpdatePlace = lazy(() => import('./places/pages/UpdatePlace.jsx'));
 
-import Users from './user/pages/User';
-// import Auth from './user/pages/Auth';
-// import NewPlace from './places/pages/NewPlace';
-// import UserPlaces from './places/pages/UserPlaces';
-// import UpdatePlace from './places/pages/UpdatePlace';
-import MainNavigation from './shared/components/Navigation/MainNavigation';
-import { AuthContext } from './shared/context/auth-context';
-import { useAuth } from './shared/hooks/auth-hook';
+import Users from './user/pages/User.jsx';
+import MainNavigation from './shared/components/Navigation/MainNavigation.jsx';
+import { AuthContext } from './shared/context/auth-context.jsx';
+import { useAuth } from './shared/hooks/auth-hook.jsx';
 
-import LoadingSpinner from './shared/components/UIElements/LoadingSpinner';
+import LoadingSpinner from './shared/components/UIElements/LoadingSpinner.jsx';
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();

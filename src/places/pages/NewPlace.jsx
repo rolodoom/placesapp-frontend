@@ -1,21 +1,21 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { IoAddCircleOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 
-import Input from '../../shared/components/FormElements/Input';
-import Button from '../../shared/components/FormElements/Button';
+import Input from '../../shared/components/FormElements/Input.jsx';
+import Button from '../../shared/components/FormElements/Button.jsx';
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
   VALIDATOR_URL,
-} from '../../shared/util/validators';
+} from '../../shared/util/validators.js';
 
-import { useForm } from '../../shared/hooks/form-hook';
-import { useHttpClient } from '../../shared/hooks/http-hook';
-import { AuthContext } from '../../shared/context/auth-context';
+import { useForm } from '../../shared/hooks/form-hook.jsx';
+import { useHttpClient } from '../../shared/hooks/http-hook.jsx';
+import { AuthContext } from '../../shared/context/auth-context.jsx';
 
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal.jsx';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner.jsx';
 
 import './PlaceForm.css';
 
@@ -59,7 +59,7 @@ const NewPlace = () => {
       });
 
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_API_URL}places`,
+        `${import.meta.env.VITE_BACKEND_API_URL}places`,
         'POST',
         requestBody,
         {
@@ -76,7 +76,7 @@ const NewPlace = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       <form className="place-form" onSubmit={placeSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay />}
@@ -119,7 +119,7 @@ const NewPlace = () => {
           <IoAddCircleOutline /> ADD PLACE
         </Button>
       </form>
-    </React.Fragment>
+    </>
   );
 };
 

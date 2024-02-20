@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import UsersList from '../components/UsersList';
+import { useEffect, useState } from 'react';
+import UsersList from '../components/UsersList.jsx';
 
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
-import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ErrorModal from '../../shared/components/UIElements/ErrorModal.jsx';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner.jsx';
 
-import { useHttpClient } from '../../shared/hooks/http-hook';
+import { useHttpClient } from '../../shared/hooks/http-hook.jsx';
 
 const Users = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -15,7 +15,7 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_API_URL}users`
+          `${import.meta.env.VITE_BACKEND_API_URL}users`
         );
         setLoadedUsers(responseData.users);
       } catch (err) {
@@ -26,7 +26,7 @@ const Users = () => {
   }, [sendRequest]);
 
   return (
-    <React.Fragment>
+    <>
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
         <div className="center">
@@ -35,7 +35,7 @@ const Users = () => {
       )}
 
       {!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
-    </React.Fragment>
+    </>
   );
 };
 
@@ -61,7 +61,7 @@ export default Users;
 //       setIsLoading(true);
 //       try {
 //         const response = await fetch(
-//           `${process.env.REACT_APP_BACKEND_API_URL}users`
+//           `${import.meta.env.VITE_BACKEND_API_URL}users`
 //         );
 //         const responseData = await response.json();
 
@@ -83,7 +83,7 @@ export default Users;
 //   };
 
 //   return (
-//     <React.Fragment>
+//     <>
 //       <ErrorModal error={error} onError={errroHandler} />
 //       {isLoading && (
 //         <div className="center">
@@ -92,7 +92,7 @@ export default Users;
 //       )}
 
 //       {!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
-//     </React.Fragment>
+//     </>
 //   );
 // };
 
