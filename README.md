@@ -7,6 +7,7 @@ This frontend uses the [PlacesApp-API](https://github.com/rolodoom/placesapp-api
 ## Status
 
 [![GitHub license](https://img.shields.io/badge/license-GPL--3.0-blue)](https://raw.githubusercontent.com/rolodoom/placesapp-frontend/main/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e889e0af-9cb3-445a-8021-72ba6cb239ba/deploy-status)](https://app.netlify.com/sites/placesapp-rolodoom/deploys)
 
 ## Preview
 
