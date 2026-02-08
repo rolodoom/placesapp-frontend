@@ -1,8 +1,0 @@
-[build]
-  command = "VITE_BACKEND_API_URL=$BACKEND_API_URL VITE_MAP_API_KEY=$MAP_API_KEY npm run build"
-  environment = { NODE_VERSION = "lts/*" }
-
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
